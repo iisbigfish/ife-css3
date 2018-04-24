@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css1</title>
+  <style>
+    .container {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    .word {
+      position: relative;
+      padding: 6px;
+    }
+    .line::after {
+      content: '';
+      background-color: #4b6dcd;
+      position: absolute;
+      display: block;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      transition: all .5s linear;
+    }
+    .line-ani {
+      color: #4b6dcd;
+    }
+    .line-ani::after {
+      left: 0;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="word line">
+      前端学院
+    </div>
+    <button onclick="changeStyle()">切换样式</button>
+  </div>
+  <script>
+  function changeStyle() {
+    let word = document.querySelector('.word')
+    word.classList.toggle('line-ani')
+  }
+  </script>
+</body>
+</html>

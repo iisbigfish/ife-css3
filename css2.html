@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dome2</title>
+  <style>
+    .container {
+      display: flex;
+      padding: 26px;
+    }
+    .box {
+      height: 66px;
+      width: 60px;
+      line-height: 66px;
+      text-align: center;
+      border: 2px solid #eee;
+      margin-right: 50px;
+      background-color: #f7f6f6;
+    }
+    .box1 {
+      transform: skewX(30deg);
+    }
+    .box2 {
+      transform: scaleX(0.5);
+    }
+    .box3 {
+      transform: rotate(45deg);
+    }
+    .box4 {
+      transform: translateX(10px) translateY(20px);
+    }
+    .box5 {
+      transform: skewX(30deg) scaleX(0.5) rotate(45deg) translateX(10px) translateY(20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box0">box0</div>
+    <div class="box box1">box1</div>
+    <div class="box box2">box2</div>
+    <div class="box box3">box3</div>
+    <div class="box box4">box4</div>
+    <div class="box box5">box5</div>
+  </div>
+</body>
+</html>

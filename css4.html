@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>dome4</title>
+  <style>
+  .container {
+    perspective: 1000;
+  }
+  .container:hover .wrap {
+    transform: rotateY(180deg);
+  }
+  .container, .front, .back {
+    height: 350px;
+    width: 250px;
+  }
+  .wrap {
+    transition: all 1s linear;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  .front, .back {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+  .back {
+    transform: rotateY(180deg);
+  }
+  </style>
+</head>
+<body>
+  <div class="container" >
+      <div class="wrap">
+          <div class="front">
+              <!-- 正面内容 -->
+              <img src="./images/front.jpg">
+          </div>
+          <div class="back">
+              <!-- 反面内容 -->
+              <img src="./images/back.jpg">
+          </div>
+      </div>
+  </div>
+</body>
+</html>

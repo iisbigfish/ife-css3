@@ -149,6 +149,7 @@
         }
         .focus-animation-sec::after {
             right: 0;
+            transition: right 0s ease-in;
         }
         .transion-time::after {
             transition: right .5s ease-in;
@@ -187,47 +188,16 @@
     </section>
 </body>
 <script>
-    $.fn.extend({
-        animateCss: function (animationName, callback) {
-            var animationEnd = (function (el) {
-                var animations = {
-                    animation: 'animationend',
-                    OAnimation: 'oAnimationEnd',
-                    MozAnimation: 'mozAnimationEnd',
-                    WebkitAnimation: 'webkitAnimationEnd',
-                };
-
-                for (var t in animations) {
-                    if (el.style[t] !== undefined) {
-                        return animations[t];
-                    }
-                }
-            })(document.createElement('div'));
-
-                // console.log('animationEnd', animationEnd)
-            this.addClass('animated ' + animationName).one(animationEnd, function () {
-                console.log('animationEnd', animationEnd)
-                $(this).removeClass('animated ' + animationName);
-
-                if (typeof callback === 'function') callback();
-            });
-
-            return this;
-        },
-    });
     $('#email, #password').on('focus', function () {
         $(this).parent().addClass('focus-animation-sec')
     })
     $('#email, #password').on('blur', function () {
         $(this).parent().removeClass('focus-animation-sec').addClass('focus-animation-fir')
-        setTimeout(() => {
-            $(this).parent().removeClass('focus-animation-fir')
-        }, 1000)
         if ($(this).val().trim()) {
             $(this).next().children().addClass('up')
         }
         if ($('#email').val().trim() && $('#password').val().trim()) {
-            $('.form__input__submit').animateCss('pulse')
+            $('.form__input__submit').addClass('animated pulse')
         }
     })
 </script>
